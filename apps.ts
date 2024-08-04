@@ -69,3 +69,5 @@ app.use((req: Request, res: Response) => {
 app.listen(configs.port, () => {
   console.log("listening on *: " + configs.port);
 });
+
+export default app; 

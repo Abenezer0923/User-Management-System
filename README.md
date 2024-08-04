@@ -25,7 +25,7 @@ Technologies Used
     Swagger: API documentation and testing
     Joi: Data validation
     dotenv: Environment variable management
-    jest: test the routes
+    jest: Testing framework
 
 Features
 
@@ -38,6 +38,51 @@ Features
     Swagger Integration: Interactive API documentation for easy testing and exploration.
     Testing: Comprehensive tests using Jest.
 
+Installation
+
+To get started with the User Management System, follow these steps:
+
+    Clone the Repository
+
+    bash
+
+git clone https://github.com/Abenezer0923/User-Management-System.git
+
+Navigate to the Project Directory
+
+bash
+
+cd User-Management-System
+
+Install Dependencies
+
+bash
+
+    npm install
+
+Configuration
+
+    Create a .env file in the root of the project directory based on the provided .env.example file.
+
+    Add your MongoDB connection string and any other required environment variables in the .env file.
+
+Running the Application
+
+    Start the Server
+
+    bash
+
+npm start
+
+The server will start and listen on the specified port (usually http://localhost:3000).
+
+Run in Development Mode
+
+bash
+
+    npm run dev
+
+    This will start the server with live reloading for development purposes.
 
 API Endpoints
 
@@ -47,7 +92,6 @@ The User Management System exposes the following API endpoints:
     POST /updateuser: Update an existing user's information.
     GET /getuserbyid: Retrieve user information by ID.
     GET /getuserspage: Get a paginated list of users (admin access required).
-    POST /deleteuser: Delete a user by ID.
     GET /admin/getallusers: Get all users as an admin.
     POST /admin/deleteuser: Delete a user as an admin.
 
@@ -60,4 +104,3 @@ bash
 npm test
 
 This will run the test suite using Jest.
-

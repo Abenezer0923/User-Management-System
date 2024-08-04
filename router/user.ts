@@ -268,68 +268,6 @@ const router = express.Router();
  *                   example: Unauthorized access
  */
 
-/**
- * @swagger
- * /api/user/deleteuser:
- *   post:
- *     tags:
- *       - User
- *     summary: Delete a user
- *     description: Deletes a user based on the provided ID.
- *     security:
- *       - BearerAuth: []
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               userId:
- *                 type: string
- *                 description: ID of the user to delete.
- *                 example: 60c72b2f5f1b2c001f6478a8
- *     responses:
- *       200:
- *         description: User successfully deleted
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                   example: true
- *                 message:
- *                   type: string
- *                   example: User has been successfully deleted
- *       400:
- *         description: Validation error
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                   example: false
- *                 message:
- *                   type: string
- *                   example: User ID is required
- *       401:
- *         description: Unauthorized
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                   example: false
- *                 message:
- *                   type: string
- *                   example: Unauthorized access
- */
 
 /**
  * @swagger
@@ -432,7 +370,6 @@ router.post("/register", userController.register);
 router.post("/updateuser", authenticateJWT, userController.updateUser);
 router.get("/getuserbyid", authenticateJWT, userController.getUserById);
 router.get("/getuserspage", authenticateJWT, userController.getUsersPage);
-router.post("/deleteuser", authenticateJWT, userController.deleteUser);
 
 router.get("/admin/getallusers", authenticateJWT, authorizeAdmin, userController.getAllUsersAsAdmin);
 router.post("/admin/deleteuser", authenticateJWT, authorizeAdmin, userController.deleteUserAsAdmin);
