@@ -1,6 +1,6 @@
 import request from 'supertest';
 import express from 'express';
-import authRouter from './auth'; // Adjust the import path to where your auth router is located
+import authRouter from './auth'; 
 
 const app = express();
 app.use(express.json());

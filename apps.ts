@@ -17,7 +17,12 @@ connectDB();
 const app = express();
 
 // Define allowed origins for CORS
-const allowlist = ["http://localhost", "http://localhost:3000"];
+const allowlist = [
+  "http://localhost",
+  "http://localhost:3000",
+  "https://user-management-system-imu9.onrender.com" 
+];
+
 
 const corsOptionsDelegate = (
   req: express.Request,
