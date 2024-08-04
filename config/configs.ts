@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const configs = {
-  port:process.env.PORT || 4000,
+  port: process.env.PORT || 4000, // Default to 4000 if PORT is not set
   connectionString: process.env.MONGODB_CONNECTION_STRING || '',
   secret: process.env.JWT_SECRET || '',
 };
