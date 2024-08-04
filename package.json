@@ -2,8 +2,8 @@
   "name": "ums",
   "version": "1.0.0",
   "description": "",
-  "main": "nodemon server.ts",
-  "scripts": {
+  "main": "server.ts",
+ "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "test:jest": "jest",
     "start": "nodemon --exec ts-node server.ts"
