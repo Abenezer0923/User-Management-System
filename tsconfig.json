@@ -2,13 +2,13 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "outDir": "./dist",
+    "outDir": "./public",  // Change to 'public'
     "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["*.ts"],  // Adjust this based on where your TypeScript files are located
-  "exclude": ["node_modules", "dist"]
+  "include": ["*.ts"],  // Adjust as needed
+  "exclude": ["node_modules", "public"]  // Exclude the 'public' directory
 }
