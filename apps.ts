@@ -1,8 +1,7 @@
 import express, { Request, Response } from "express";
-import configs from "./config/configs";
 import session from "express-session";
-import bodyParser from "body-parser";
 import MongoStore from "connect-mongo";
+import bodyParser from "body-parser";
 import cors from "cors";
 import useragent from "express-useragent";
 import connectDB from "./config/db";
@@ -14,6 +13,8 @@ import { swaggerUi, swaggerSpec } from './swagger'; // Import Swagger config
 dotenv.config();
 
 connectDB();
+
+const app = express();
 
 // Define allowed origins for CORS
 const allowlist = ["http://localhost", "http://localhost:3000"];
@@ -32,8 +33,6 @@ const corsOptionsDelegate = (
   callback(null, corsOptions); // Callback expects two parameters: error and options
 };
 
-const app = express();
-
 app.use(useragent.express());
 app.use(cors(corsOptionsDelegate));
 app.use(bodyParser.urlencoded({ extended: false, limit: "5mb" }));
@@ -45,7 +44,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_CONNECTION_STRING || "",
+      mongoUrl: process.env.MONGODB_CONNECTION_STRING || "", 
     }),
   })
 );
@@ -66,8 +65,8 @@ app.use((req: Request, res: Response) => {
   });
 });
 
-app.listen(configs.port, () => {
-  console.log("listening on *: " + configs.port);
+app.listen(process.env.PORT || 8000, () => {
+  console.log(`Server is listening on port ${process.env.PORT || 8000}`);
 });
 
-export default app; 
+export default app;
