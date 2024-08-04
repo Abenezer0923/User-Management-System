@@ -6,10 +6,10 @@
  "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "test:jest": "jest",
-    "build": "tsc",  
-    "start": "node dist/server.js",  
-    "dev": "nodemon --exec ts-node server.ts"  
+    "start": "node dist/server.js", 
+    "build": "tsc" 
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",

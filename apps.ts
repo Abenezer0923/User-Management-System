@@ -26,9 +26,7 @@ app.use(cors({
   allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept"
 }));
 
-app.use("/uploads", express.static(__dirname + "/uploads"));
-app.use("/content", express.static(__dirname + "/content"));
-app.use("/public", express.static(__dirname + "/public"));
+
 
 // Set up Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

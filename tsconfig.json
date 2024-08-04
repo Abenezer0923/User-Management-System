@@ -3,12 +3,12 @@
     "target": "es6",
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": "./", // Adjust to the correct root directory
+    "rootDir": "./",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["*.ts"], // Adjust to match your TypeScript files
+  "include": ["server.ts", "apps.ts"],
   "exclude": ["node_modules", "dist"]
 }
