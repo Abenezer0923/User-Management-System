@@ -44,7 +44,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_CONNECTION_STRING || "", 
+      mongoUrl: process.env.MONGODB_CONNECTION_STRING || "", // Correctly set the connection string
     }),
   })
 );
@@ -65,7 +65,7 @@ app.use((req: Request, res: Response) => {
   });
 });
 
-app.listen(8000, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log(`Server is listening on port ${process.env.PORT || 8000}`);
 });
 
