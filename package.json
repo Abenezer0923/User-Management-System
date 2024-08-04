@@ -6,7 +6,9 @@
  "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "test:jest": "jest",
-    "start": "nodemon --exec ts-node server.ts"
+    "build": "tsc",  
+    "start": "node dist/server.js",  
+    "dev": "nodemon --exec ts-node server.ts"  
   },
   "keywords": [],
   "author": "",

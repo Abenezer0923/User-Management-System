@@ -16,43 +16,15 @@ connectDB();
 
 const app = express();
 
-// Define allowed origins for CORS
-const allowlist = [
-  "http://localhost",
-  "http://localhost:3000",
-  "https://user-management-system-imu9.onrender.com" 
-];
-
-
-const corsOptionsDelegate = (
-  req: express.Request,
-  callback: (err: Error | null, options?: cors.CorsOptions) => void
-) => {
-  let corsOptions: cors.CorsOptions;
-  if (allowlist.includes(req.header("Origin")!)) {
-    corsOptions = { origin: true }; // Reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false }; // Disable CORS for this request
-  }
-
-  callback(null, corsOptions); // Callback expects two parameters: error and options
-};
-
-app.use(useragent.express());
-app.use(cors(corsOptionsDelegate));
-app.use(bodyParser.urlencoded({ extended: false, limit: "5mb" }));
-app.use(bodyParser.json({ type: "application/json", limit: "50mb" }));
-
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || "default_secret",
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_CONNECTION_STRING || "", // Correctly set the connection string
-    }),
-  })
-);
+// CORS configuration to allow all origins
+app.use(cors({
+  origin: (origin, callback) => {
+    callback(null, true); // Always allow all origins
+  },
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept"
+}));
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use("/content", express.static(__dirname + "/content"));
