@@ -5,10 +5,10 @@
   "main": "server.ts",
   "type": "module",
  "scripts": {
-    "build": "tsc"
+    "build": "tsc",
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "test:jest": "jest",
-    "start": "node dist/server.js",  
+    "start": "node dist/server.js"
   },
 
   "keywords": [],
