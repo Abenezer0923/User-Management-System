@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.ts",
+  "type": "module",
  "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "test:jest": "jest",
-    "start": "nodemon server.js", 
+    "start": "node dist/server.js", 
     "build": "tsc" 
   },
 
